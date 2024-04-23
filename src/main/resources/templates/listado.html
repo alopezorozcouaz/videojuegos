@@ -22,20 +22,22 @@
 
         <div class="container mt-5 vj-destacados">
             <div class="row">
-                <div class="col-md-3 mb-3">
+                <div th:each="juego : ${videojuegos}" class="col-md-3 mb-3">
                     <div class="card">
-                        <img src="https://m.media-amazon.com/images/I/91T0XQv8gEL._AC_UF1000,1000_QL80_.jpg" class="card-img-top" alt="GTA">
+                        <img th:src="${juego.imagenUrl}" class="card-img-top" alt="GTA">
                         <div class="card-body">
-                            <h5 class="card-title">Mortal Kombat</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                            
+                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
+                            <p th:text="${juego.descripcion}" class="card-text"></p>                            
                         </div>
                         <div class="card-footer text-muted">
                             <a href="#" class="btn btn-primary">Ver Detalles</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
                 
-                <div class="col-md-3 mb-3">
+        <!--        <div class="col-md-3 mb-3">
                     <div class="card">
                         <img src="https://cdn1.epicgames.com/offer/fda0f2b4047f46ffb4e94d5595c1468e/EGS_MortalKombat1_NetherRealmStudios_S4_1200x1600-076e67292bb57f11ebb4465b7e74a65e" class="card-img-top" alt="Mortal Kombat">
                         <div class="card-body">
@@ -128,7 +130,7 @@
             </div>      
             
             
-        </div> 
+        </div> --!>
         
         
 
