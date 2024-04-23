@@ -21,11 +21,11 @@ public class ListadoController {
     }    
     
     @RequestMapping("/")
-    public List<Videojuego> listarVideojuegos(Model model){
+    public String listarVideojuegos(Model model){
         List<Videojuego> destacados = videojuegoService.buscarDestacados();
         
         model.addAttribute("videojuegos", destacados);
         
-        return destacados;
+        return "listado.html";
     }
 }
