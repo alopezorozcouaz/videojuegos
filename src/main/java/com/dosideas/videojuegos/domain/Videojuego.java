@@ -24,6 +24,13 @@ public class Videojuego {
         this.imagenUrl = imagenUrl;
     }
 
+    public Videojuego(int id, String nombre, String descripcion, String imagenUrl) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagenUrl = imagenUrl;
+    }
+
     public Videojuego() {
     }
     
