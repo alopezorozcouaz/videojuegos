@@ -28,4 +28,17 @@ public class ListadoController {
         
         return "listado.html";
     }
+    
+    /**
+     * Retorna una lista de elementos según el distribuidor
+     * @param distribuidorId
+     * @param model
+     * @return 
+     */
+    @RequestMapping("/videojuegosPorDistribuidor")
+    public String listarVideojuegosPorDistribuidor(int distribuidorId, Model model){
+        List<Videojuego> juegos = videojuegoService.buscarPorDistribuidor(distribuidorId);
+        model.addAttribute("videojuegos", juegos);
+        return "listado.html";
+    }
 }

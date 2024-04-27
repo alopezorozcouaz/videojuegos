@@ -5,6 +5,7 @@
         "th:src": {},
         "th:each": {
             "context": "div"
-        }
+        },
+        "th:href": {}
     }
 }
