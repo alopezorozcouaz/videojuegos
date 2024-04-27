@@ -2,7 +2,6 @@ package com.dosideas.videojuegos.service;
 
 import com.dosideas.videojuegos.domain.Videojuego;
 import com.dosideas.videojuegos.repository.VideojuegoRepository;
-import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +19,6 @@ public class VideojuegoService {
     }
     
     public List<Videojuego> buscarDestacados(){
-        return videojuegoRepository.findAll();
+        return videojuegoRepository.buscarTodos();
     }
 }
