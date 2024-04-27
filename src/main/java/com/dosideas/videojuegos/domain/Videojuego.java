@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 /**
  *
@@ -17,23 +18,9 @@ public class Videojuego {
     private String nombre;
     private String descripcion;
     private String imagenUrl;
+    @ManyToOne
+    private Distribuidor distribuidor;
 
-    public Videojuego(String nombre, String descripcion, String imagenUrl) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagenUrl = imagenUrl;
-    }
-
-    public Videojuego(int id, String nombre, String descripcion, String imagenUrl) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.imagenUrl = imagenUrl;
-    }
-
-    public Videojuego() {
-    }
-    
     public int getId() {
         return id;
     }
@@ -65,4 +52,12 @@ public class Videojuego {
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
     }
-}
+
+    public Distribuidor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Distribuidor distribuidor) {
+        this.distribuidor = distribuidor;
+    }   
+}//fin de la clase
