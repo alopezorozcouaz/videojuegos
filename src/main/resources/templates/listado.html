@@ -18,6 +18,10 @@
                 <img src="img/video_game.png" width="30" height="30" alt="Logo">
                 Tienda VJ
             </a>
+            <form th:action="@{/buscar}" class="form-inline my-2 my-lg-0">
+                <input autofocus="autofocus" name="q" class="form-control mr-sm-2" type="search" th:placeholder="${param.q}" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
         </nav>
 
         <div class="container mt-5 vj-destacados">

@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -38,6 +39,19 @@ public class ListadoController {
     @RequestMapping("/videojuegosPorDistribuidor")
     public String listarVideojuegosPorDistribuidor(int distribuidorId, Model model){
         List<Videojuego> juegos = videojuegoService.buscarPorDistribuidor(distribuidorId);
+        model.addAttribute("videojuegos", juegos);
+        return "listado.html";
+    }
+    
+    /**
+     * Permite realizar búsquedas de videojuegos por el nombre
+     * @param consulta
+     * @param model
+     * @return 
+     */
+    @RequestMapping("/buscar")
+    public String buscar(@RequestParam("q") String consulta, Model model){
+        List<Videojuego> juegos = videojuegoService.buscar(consulta);
         model.addAttribute("videojuegos", juegos);
         return "listado.html";
     }

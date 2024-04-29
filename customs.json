@@ -3,9 +3,11 @@
     "attributes": {
         "th:text": {},
         "th:src": {},
+        "th:action": {},
         "th:each": {
             "context": "div"
         },
-        "th:href": {}
+        "th:href": {},
+        "th:placeholder": {}
     }
 }
