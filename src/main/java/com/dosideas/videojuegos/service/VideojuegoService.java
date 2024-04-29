@@ -41,6 +41,15 @@ public class VideojuegoService {
         return videojuegoRepository.buscar(consulta);
     }
     
+    /**
+     * Guardar un videojuego en la bd
+     * @param videojuego
+     * @return 
+     */
+    public Videojuego guardar(Videojuego videojuego){
+        return videojuegoRepository.save(videojuego);
+    }
+    
     
     /**
      *
