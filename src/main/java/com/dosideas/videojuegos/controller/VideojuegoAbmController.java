@@ -26,6 +26,7 @@ public class VideojuegoAbmController {
     @RequestMapping("/videojuegos/crear")
     public String mostrarFormAlta(Model model){
         model.addAttribute("distribuidores", distribuidorService.buscarTodos());
+        model.addAttribute("videojuego", new Videojuego());
         return "formvideojuego.html";
     }
     
@@ -37,6 +38,6 @@ public class VideojuegoAbmController {
     @PostMapping("/videojuegos/guardar")
     public String guardar(Videojuego videojuego){
         videojuegoService.guardar(videojuego);
-        return "redirect/";
+        return "redirect:/";
     }
 }
