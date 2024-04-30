@@ -8,6 +8,9 @@
             "context": "div"
         },
         "th:href": {},
-        "th:placeholder": {}
+        "th:placeholder": {},
+        "th:field": {
+            "context": "select"
+        }
     }
 }
