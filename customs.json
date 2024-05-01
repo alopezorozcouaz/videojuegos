@@ -4,6 +4,7 @@
         "th:text": {},
         "th:src": {},
         "th:action": {},
+        "th:ref": {},
         "th:each": {
             "context": "div"
         },

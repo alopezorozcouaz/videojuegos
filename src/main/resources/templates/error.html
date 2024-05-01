@@ -8,8 +8,19 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="css/videojuegos.css">
-        
-        <title>Tienda  VJ</title>
+
+        <title>Tienda  VJ - Algo salió mal</title>
+        <style>
+            .error-container {
+                text-align: center;
+                margin-top: 50px;
+            }
+            .error-image {
+                width: 300px;
+                height: auto;
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
     <body>
         <!-- As a link -->
@@ -26,31 +37,19 @@
 
         <div class="container mt-5 vj-destacados">
             <div class="row">
-                <div class="col col-md-12 text-right mb-4">
-                    <a th:href="@{/videojuegos/crear}" class="btn btn-outline-success">Crear Videojuego</a>
-                </div>
-            </div>
-            <div class="row">
-                <div th:each="juego : ${videojuegos}" class="col-md-3 mb-3">
-                    <div class="card">
-                        <img th:src="${juego.imagenUrl}" class="card-img-top" alt="GTA">
-                        <div class="card-body">
-                            <h5 th:text="${juego.nombre}" class="card-title"></h5>
-                            <p>
-                                <a th:href="@{/videojuegosPorDistribuidor(distribuidorId=${juego.distribuidor.id})}" 
-                                   class="badge badge-pill badge-warning" th:text="${juego.distribuidor.nombre}"></a>
-                            </p>
-                            <p th:text="${juego.descripcion}" class="card-text"></p>                            
-                        </div>
-                        <div class="card-footer text-muted">
-                            <a th:href="@{/buscarVideojuegoPorId(videojuegoId=${juego.id})}" class="btn btn-primary">Ver Detalles</a>
-                        </div>
+                <div class="col col-md-12 mb-4">                    
+                    <div class="error-container">
+                        <img th:src="@{/img/error-icon.png}" alt="Error" class="error-image">
+                        <h2>¡Oops! Algo salió mal.</h2>
+                        <p>Lo sentimos, se produjo un error al procesar su solicitud.</p>
+                        <p>Error: <span th:text="${mensajeError}" class="badge badge-danger"></span></p>
+                        <!-- Puedes proporcionar más detalles sobre el error si lo deseas -->
                     </div>
                 </div>
             </div>
         </div> 
-        
-        
+
+
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

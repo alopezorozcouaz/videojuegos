@@ -3,10 +3,12 @@ package com.dosideas.videojuegos.controller;
 import com.dosideas.videojuegos.domain.Videojuego;
 import com.dosideas.videojuegos.service.DistribuidorService;
 import com.dosideas.videojuegos.service.VideojuegoService;
+import java.util.Optional;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -38,6 +40,18 @@ public class VideojuegoAbmController {
     @PostMapping("/videojuegos/guardar")
     public String guardar(Videojuego videojuego){
         videojuegoService.guardar(videojuego);
+        return "redirect:/";
+    }
+    
+    /**
+     * Elimina un videojuego según su Id.
+     * @param idVideojuego
+     * @return 
+     */
+    @RequestMapping("/videojuegos/eliminar")
+    public String eliminarVideojuegoPorId(@RequestParam("id") String idVideojuego){
+        int idv = Integer.parseInt(idVideojuego);      
+        videojuegoService.eliminarPorId(idv);       
         return "redirect:/";
     }
 }

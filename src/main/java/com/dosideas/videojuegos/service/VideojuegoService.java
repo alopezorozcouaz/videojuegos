@@ -3,6 +3,7 @@ package com.dosideas.videojuegos.service;
 import com.dosideas.videojuegos.domain.Videojuego;
 import com.dosideas.videojuegos.repository.VideojuegoRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 /**
@@ -48,6 +49,23 @@ public class VideojuegoService {
      */
     public Videojuego guardar(Videojuego videojuego){
         return videojuegoRepository.save(videojuego);
+    }
+    
+    /**
+     * Permite buscar un videojuego por su identificador
+     * @param id
+     * @return 
+     */
+    public Optional<Videojuego> buscarPorId(int id){
+        return videojuegoRepository.findById(id);        
+    }
+    
+    /**
+     * Elimina un videojuego por su id
+     * @param id 
+     */
+    public void eliminarPorId(int id){
+        videojuegoRepository.deleteById(id);
     }
     
     
