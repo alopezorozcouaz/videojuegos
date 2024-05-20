@@ -9,5 +9,4 @@ class VideojuegosApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

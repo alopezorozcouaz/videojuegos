@@ -26,7 +26,7 @@ public class ListadoController {
         this.videojuegoService = videojuegoService;
     }    
     
-    @RequestMapping("/")
+    @RequestMapping("/listado")
     public String listarVideojuegos(Model model){
         List<Videojuego> destacados = videojuegoService.buscarDestacados();
         
