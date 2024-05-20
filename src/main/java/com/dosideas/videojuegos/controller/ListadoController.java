@@ -4,12 +4,14 @@ import com.dosideas.videojuegos.domain.Videojuego;
 import com.dosideas.videojuegos.service.VideojuegoService;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -32,6 +34,18 @@ public class ListadoController {
         
         return "listado.html";
     }
+    
+    /**
+     * Retorna la lista de videojuegos en formato JSON
+     * @return 
+     */
+    @GetMapping("/videojuegos")
+    @ResponseBody
+    public ResponseEntity<List<Videojuego>> getVideojuegos(){
+        List<Videojuego> todos = videojuegoService.buscarDestacados();
+        return new ResponseEntity<>(todos, HttpStatus.OK);
+    }
+    
     
     /**
      * Retorna una lista de elementos según el distribuidor
